@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple S3 Uploader</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>SIMPLE S3 UPLOADER</h1>
+      </header>
+      <div class="upload-section">
+        <div class="upload-zone normal-border">
+          <div class="select-files">
+            <div class="upload-title">SELECT FILES</div>
+            <div class="upload-instructions">
+              Simply select your files from your device
+            </div>
+            <input
+              type="file"
+              id="select-file-input"
+              multiple
+              style="display: none"
+            />
+            <button class="select-btn">Select Files</button>
+          </div>
+        </div>
+        <div class="upload-zone dashed-border">
+          <div class="upload-title">OR DRAG N DROP</div>
+          <div class="upload-instructions">
+            Simply drop your files to dots below
+          </div>
+          <div class="dots">
+            <img src="img/dots.png" alt="drag and drop area" />
+          </div>
+        </div>
+      </div>
+      <div class="submit-zone">
+        <div id="file-grid"></div>
+        <button class="submit-btn" id="submit-button">Upload Files</button>
+      </div>
+    </div>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1528.0.min.js"></script>
+    <script src="js/awsConfig.js"></script>
+    <script src="js/uploadScript.js"></script>
+  </body>
+</html>

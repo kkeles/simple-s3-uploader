@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap");
 
-
 /* #region General Styling */
 body,
 html {
@@ -25,7 +24,7 @@ html {
 
 /* #region Header - Title Styling */
 header {
-  margin-bottom: 50px;
+  margin: 20px 0px;
 }
 h1 {
   font-size: 2.5em;
@@ -36,7 +35,7 @@ header p {
 }
 /* #endregion */
 
-/* #region Drag n Drop Styling */
+/* #region Upload Fields Styling */
 .upload-section {
   display: flex;
   flex-direction: row;
@@ -199,19 +198,26 @@ header p {
 /* #region Responsive Screen Settings */
 
 @media (max-width: 768px) {
-  .upload-area {
-    width: 75%;
+  .upload-section {
+    justify-content: center;
+  }
+
+  .upload-zone {
+    margin: 0;
+    padding: 0 50;
   }
 
   #file-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  #drag-drop {
+    visibility: hidden;
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
-  .upload-area {
-    width: 90%;
-  }
 
   h1 {
     font-size: 1.5em;

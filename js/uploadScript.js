@@ -1,6 +1,6 @@
 let totalFiles = [];
 const maxFiles = 20;
-const bucketName = "simples3uploadskk";
+const bucketName = "**YOUR S3 BUCKET NAME HERE**";
 
 document.addEventListener("DOMContentLoaded", function () {
   const selectBtn = document.querySelector(".select-btn");
@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropZone = document.querySelector(".dots");
   const submitBtn = document.getElementById("submit-button");
 
-  // File selection via button
+  // Select file button definition
   selectBtn.addEventListener("click", function () {
     fileInput.click();
   });
 
-  // Handle file selection
+  // Select file button events
   fileInput.addEventListener("change", function () {
     handleFiles(Array.from(fileInput.files));
   });
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     handleFiles(Array.from(event.dataTransfer.files));
   });
 
-  // Submit button event
+  // Submit button events - run uploadFile() function for each file
   submitBtn.addEventListener("click", function () {
     totalFiles.forEach((file) => {
       uploadFile(file); // Upload each file
@@ -80,6 +80,7 @@ function updateFileGrid(files) {
   });
 }
 
+// Popup events for successful upload message to the user
 function showPopup(message, duration = 3000) {
   // Create a new popup div
   let popup = document.createElement('div');
@@ -97,11 +98,9 @@ function showPopup(message, duration = 3000) {
   }, duration);
 }
 
-
-// Upload file to S3
+// Upload file to S3 function (for one file)
 async function uploadFile(file) {
   var s3 = new AWS.S3();
-
   var upload = new AWS.S3.ManagedUpload({
     params: {
       Bucket: bucketName,
@@ -109,7 +108,6 @@ async function uploadFile(file) {
       Body: file,
     },
   });
-
   try {
     const data = await upload.promise();
     showPopup("Successfully uploaded file: " + file.name);

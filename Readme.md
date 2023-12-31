@@ -39,5 +39,15 @@ In your project, find _awsConfig.js_ file in js folder. The content should be si
 	secretAccessKey: "YOUR_SECRET_ACCESS_KEY_HERE"
 	});
 ```
-type the region you selected when you created your S3 bucket (eu-west-1, us-east-1, eu-central-1 etc.)
+- Declare the region you selected when you created your S3 bucket (eu-west-1, us-east-1, eu-central-1 etc.).
+- Type _accessKeyId_ and _secretAccessKey_ noted earlier.
+
+>❗️ Never share your credentials outside your local device. Don't push it to your repository or don't publish in another source.
+
+### Final Part - Usage
+You can run index.html in your preferred web browser.
+<br>This version of the project is intended for local use with simplified context.
+<br>For bugs, questions and recommendations feel free to reach out to me at kkelesh@gmail.com
+
+
 

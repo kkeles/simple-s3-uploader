@@ -80,9 +80,27 @@ function updateFileGrid(files) {
   });
 }
 
+function showPopup(message, duration = 3000) {
+  // Create a new popup div
+  let popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.textContent = message;
+
+  // Append the popup to the container
+  let container = document.getElementById('popup-container');
+  container.appendChild(popup);
+
+  // Remove the popup after 'duration' milliseconds
+  setTimeout(() => {
+      popup.style.opacity = 0;
+      popup.addEventListener('transitionend', () => popup.remove());
+  }, duration);
+}
+
+
 // Upload file to S3
 async function uploadFile(file) {
-  var s3 = new AWS.S3(); // Ensure AWS SDK is configured correctly
+  var s3 = new AWS.S3();
 
   var upload = new AWS.S3.ManagedUpload({
     params: {
@@ -94,7 +112,7 @@ async function uploadFile(file) {
 
   try {
     const data = await upload.promise();
-    console.log("Successfully uploaded file: " + file.name);
+    showPopup("Successfully uploaded file: " + file.name);
   } catch (err) {
     console.error(
       "There was an error uploading file: " + file.name + " - " + err.message

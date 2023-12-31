@@ -1,5 +1,5 @@
 AWS.config.update({
-    region: "**YOUR REGION HERE**",
-    accessKeyId: "**YOUR ACCESS KEY HERE**",
-    secretAccessKey: "**YOUR SECRET ACCESS KEY HERE**",
+    region: "YOUR_REGION_HERE",
+    accessKeyId: "YOUR_ACCESS_KEY_HERE",
+    secretAccessKey: "YOUR_SECRET_ACCESS_KEY_HERE"
   });
